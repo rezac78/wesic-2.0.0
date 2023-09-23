@@ -8,17 +8,15 @@ function Search() {
   };
 
   return (
-    <div className="flex border rounded-md overflow-hidden">
+    <div className="flex border rounded-full overflow-hidden ">
       <input
         type="text"
         placeholder="Search..."
-        className="p-2 flex-grow outline-none"
+        className="p-1 flex-grow outline-none text-center"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button onClick={handleSearch} className="px-4 bg-blue-500 text-white">
-        Search
-      </button>
+
     </div>
   );
 }

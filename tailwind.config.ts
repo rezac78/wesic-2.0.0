@@ -17,6 +17,13 @@ const config: Config = {
         'bg-Navbar': '#203A43',
       },
     },
+    screens: {
+      'sm': '500px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '1170px',
+      // => @media (min-width: 768px) { ... }
+    }
   },
   plugins: [],
 }
