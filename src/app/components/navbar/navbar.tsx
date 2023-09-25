@@ -9,7 +9,7 @@ import {
         XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { navbar } from "@/Events/Event"
-import Search from '../search/search';
+import Search from '@/app/parts/search/search';
 
 function Navbar() {
         const [isMenuOpen, setIsMenuOpen] = useState(false);

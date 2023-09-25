@@ -1,9 +1,16 @@
-import Navbar from "@/app/components/navbar/navbar";
+'use client'
+import Header from "@/app/components/Header/Header";
+import SliderShow from "@/app/parts/sliderShow/sliderShow";
+import Divider from "./parts/Divider/Divider";
+import PartsMain from "./parts/PartsMain/PartsMain";
 
 export default function Home() {
   return (
-    <div className="pt-4">
-      <Navbar/>
-    </div>
+    <>
+      <Header />
+      <SliderShow />
+      <Divider/>
+      <PartsMain/>
+    </>
   )
 }

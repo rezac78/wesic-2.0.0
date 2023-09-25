@@ -19,3 +19,54 @@
 body {
   background: #0F2027;
 }
+
+
+.containe .clip{
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  transition: 0.5s;
+}
+.containe .clip.clip1
+{
+  background-image: url("/1.jfif");
+  clip-path: polygon(0 0, 26% 0, 0 100%, 0 100%);
+  width: 100%;
+  background-size: cover;
+}
+.containe .clip.clip2
+{
+  background-image: url("/1.jpeg");
+  width: 100%;
+  background-size: cover;
+  clip-path: polygon(26% 0, 45% 0, 15% 100%, 0 100%);
+
+}
+.containe .clip.clip3
+{
+  background-image: url("/2.jpg");
+  clip-path: polygon(43% 0, 65% 0, 40% 100%, 15% 100%);
+  width: 100%;
+  background-size: cover;
+}
+.containe .clip.clip4
+{
+  background-image: url("/3.png");
+  clip-path: polygon(64% 0, 83% 0, 63% 100%, 38% 100%);
+  width: 100%;
+  background-size: cover;
+}
+.containe .clip.clip5
+{
+  background-image: url("/5.jfif");
+  background-size: cover;
+  clip-path: polygon(83% 0, 100% 0, 100% 100%, 63% 100%);
+}
+.containe:hover .clip{
+  clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+.containe .clip:hover {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
