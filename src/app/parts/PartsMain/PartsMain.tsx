@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { PartsMains } from "@/Events/Event"
+import Divider from '../Divider/Divider';
 
 function PartsMain() {
         const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,7 +25,7 @@ function PartsMain() {
         return (
                 <>
                         {PartsMains.map((e, key) => (
-                                isStopped ? <div dir={e.Direction} key={key} className="w-10/12 mx-auto mt-40 border-2 bg-gray-300 flex">
+                                isStopped ? <> <div dir={e.Direction} key={key} className="w-10/12 mx-auto mt-36 border-2 bg-gray-300 flex">
                                         <div className="w-1/2 p-10">
                                                 <div className="text-center text-2xl">{e.name}</div>
                                                 <div className="m-10 text-center">
@@ -42,8 +43,11 @@ function PartsMain() {
                                                 />
                                         </div>
                                 </div>
+                                {console.log(e.id - 1) }
+                                        <Divider />
+                                </>
                                         :
-                                        <div dir={e.Direction} key={key} className="w-11/12 sm:w-3/5 m-auto mt-40 border-2 bg-gray-300 ">
+                                        <><div dir={e.Direction} key={key} className="w-11/12 sm:w-3/5 m-auto mt-40 border-2 bg-gray-300 ">
                                                 <div className='w-full m-auto mt-5'>
                                                         <Image
                                                                 src={e.imageLink}
@@ -62,6 +66,8 @@ function PartsMain() {
                                                         </div>
                                                 </div>
                                         </div>
+                                                <Divider />
+                                        </>
                         ))}
                 </>
         );

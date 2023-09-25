@@ -44,7 +44,7 @@ function Navbar() {
                                         </div>
                                 </nav>
 
-                        ) : <nav className="md:hidden bg-bg-Navbar p-4 m-auto rounded  w-11/12 ">
+                        ) : <nav className="md:hidden bg-bg-Navbar p-4 m-auto rounded  w-10/12 ">
                                 <button
                                         className="md:hidden flex ml-auto  px-3 py-2 border rounded text-white border-white hover:text-gray-200 hover:border-gray-200 transition"
                                         onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -42,7 +42,7 @@ export const navbar: AllsNavbar[] = [
 
 export const PartsMains: PartsMain[] = [
   {
-    id: 1,
+    id: 0,
     name: "Pop",
     description:
       "Pop is a genre of popular music that originated in its modern form during the mid-1950s in the United States and the United Kingdom. The terms popular music and pop music are often used interchangeably, although the former describes all music that is popular and includes many disparate styles.",
@@ -52,7 +52,7 @@ export const PartsMains: PartsMain[] = [
     Dreg:"5"
   },
   {
-    id: 2,
+    id: 1,
     name: "Traditional",
     description:
       "Persian traditional music or Iranian traditional music, also known as Persian classical music or Iranian classical music, refers to the classical music of Iran. It consists of characteristics developed through the country's classical, medieval, and contemporary eras.",
@@ -62,7 +62,7 @@ export const PartsMains: PartsMain[] = [
     Dreg:"5"
   },
   {
-    id: 3,
+    id: 2,
     name: "IranPop",
     description:
       "Iran's western-influenced pop music emerged by the 1950s.[4] Prior to the 1950s, Iran's music industry was dominated by traditional singers.[4] Viguen, known as the  of Iranian pop and jazz music, was a pioneer of this revolution.",
@@ -72,7 +72,7 @@ export const PartsMains: PartsMain[] = [
     Dreg:"5"
   },
   {
-    id: 4,
+    id: 3,
     name: "MusicFilm",
     description:
       "A film score is original music written specifically to accompany a film. The score comprises a number of orchestral, instrumental, or choral pieces called cues, which are timed to begin and end at specific points during the film in order to enhance the dramatic narrative ",
@@ -82,7 +82,7 @@ export const PartsMains: PartsMain[] = [
     Dreg:"5"
   },
   {
-    id: 5,
+    id: 4,
     name: "MusicVideo",
     description:
       "A music video, sometimes abbreviated to MV or M/V, is a video that integrates a song or an album with imagery that is produced for promotional or musical artistic purposes. Modern music videos are primarily made and used as a music marketing device intended to promote the sale of music recordings.",
