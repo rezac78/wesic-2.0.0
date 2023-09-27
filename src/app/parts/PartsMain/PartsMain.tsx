@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
-import { PartsMains } from "@/Events/Event"
+import { PartsMains } from "../../../Events/Event"
 import Divider from '../Divider/Divider';
 
 function PartsMain() {
@@ -35,7 +35,7 @@ function PartsMain() {
                                                         <button className='border-2 border-inherit w-1/4 h-10 rounded-lg duration-500 hover:ease-in-out hover:border-black hover:bg-black hover:text-white'>Click</button>
                                                 </div>
                                         </div>
-                                        <div className={`w-1/2 rotate-[${e.Dreg}deg]`}>
+                                        <div className={`w-1/2 rotate-[5deg]`}>
                                                 <Image
                                                         src={e.imageLink}
                                                         alt={`Slide ${e.imageLink}`}

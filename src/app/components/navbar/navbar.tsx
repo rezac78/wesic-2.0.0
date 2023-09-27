@@ -53,7 +53,7 @@ function Navbar() {
                                 </button>
                                 <div className=" flex flex-col items-center space-y-2 mt-2">
                                         <a href="#" className="text-white hover:text-gray-200 transition"><HomeIcon height={30} width={30} /></a>
-                                        <a href="#" className="text-white hover:text-gray-200 transition"><UserIcon height={30} width={30} /></a>
+                                        <a href="/register" className="text-white hover:text-gray-200 transition"><UserIcon height={30} width={30} /></a>
                                         <a href="#" className="text-white hover:text-gray-200 transition"><PlayCircleIcon height={30} width={30} /></a>
                                         <a href="#" className="text-white hover:text-gray-200 transition"><PuzzlePieceIcon height={30} width={30} /></a>
                                         <a href="#" className="text-xl text-white hover:text-gray-200 transition">Tradition</a>
