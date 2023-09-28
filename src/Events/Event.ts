@@ -105,7 +105,7 @@ export const InputRegister: InputRegisters[] = [
     id: 1,
     LabelName: "Name",
     TypeInput: "text",
-    IdLabel: "name",
+    IdLabel: "username",
     PlaceholderLabel: "Enter your name",
   },
   {
