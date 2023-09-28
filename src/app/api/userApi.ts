@@ -13,3 +13,13 @@ export const registerUser = async (userData: UserData) => {
     throw error;
   }
 };
+
+
+export const LoginUser = async (userData: UserData) => {
+  try {
+    const response = await axios.post("/users/login", userData);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
