@@ -42,9 +42,9 @@ export const navbar: AllsNavbar[] = [
   { id: 5, name: "MusicVideo", Link: "#", icon: "" },
   { id: 6, name: "Study", Link: "#", icon: "" },
   { id: 7, name: "Home", Link: "#home", icon: HomeIcon },
-  { id: 8, name: "Home", Link: "/register", icon: UserIcon },
-  { id: 9, name: "Home", Link: "#PlayCircleIcon", icon: PlayCircleIcon },
-  { id: 10, name: "Home", Link: "#PuzzlePieceIcon", icon: PuzzlePieceIcon },
+  { id: 8, name: "User", Link: "/register", icon: UserIcon },
+  { id: 9, name: "Play", Link: "#PlayCircleIcon", icon: PlayCircleIcon },
+  { id: 10, name: "Game", Link: "#PuzzlePieceIcon", icon: PuzzlePieceIcon },
 ];
 
 export const PartsMains: PartsMain[] = [

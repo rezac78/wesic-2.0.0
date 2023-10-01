@@ -43,7 +43,6 @@ function PartsMain() {
                                                 />
                                         </div>
                                 </div>
-                                {console.log(e.id - 1) }
                                         <Divider />
                                 </>
                                         :

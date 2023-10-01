@@ -14,7 +14,8 @@ function Login() {
         const onSubmit = async (data: any) => {
                 try {
                         const response = await LoginUser(data);
-                        console.log(response.message)
+                        console.log(response)
+                        login(response);
                         setToastMessage(response.message);
                         setToastType("success");
                         setShowToast(true);
@@ -23,7 +24,6 @@ function Login() {
                         setToastMessage(error.response.data.message);
                         setToastType("error");
                         setShowToast(true);
-                        console.log(error)
                 }
         };
 
