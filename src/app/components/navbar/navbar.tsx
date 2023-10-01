@@ -1,10 +1,6 @@
 "use client"
 import { useState } from 'react';
 import {
-        HomeIcon,
-        UserIcon,
-        PlayCircleIcon,
-        PuzzlePieceIcon,
         Bars3Icon,
         XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -13,7 +9,18 @@ import Search from '@/app/parts/search/search';
 
 function Navbar() {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+        const isBrowser = typeof window !== 'undefined';
+        const user:any = isBrowser ? JSON.parse(localStorage.getItem('userData') || '{}') : {};
+        const getUserLink = (role: string) => {
+                switch (role) {
+                        case "admin":
+                                return "/admin/dashboard";
+                        case "user":
+                                return "/user/dashboard";
+                        default:
+                                return "/register";
+                }
+        }
         return (
                 <>
 
@@ -24,7 +31,7 @@ function Navbar() {
                                                         <div className="text-white font-semibold text-xl sm:text-2xl">WESIC</div>
                                                         <div className={`flex space-x-4 ${isMenuOpen ? 'flex' : 'hidden'} md:flex`}>
                                                                 {navbar.slice(6).map((e, key) => (
-                                                                        <a href={e.Link} className="text-white hover:text-gray-200 transition"><e.icon height={25} width={25} /></a>
+                                                                        <a href={e.name === "User" ? getUserLink(user.roles) : e.Link} className="text-white hover:text-gray-200 transition"><e.icon height={25} width={25} /></a>
                                                                 ))}
                                                                 {navbar.slice(0, 6).map((e, key) => (
                                                                         <a href={e.Link} className="text-white mt-1 hover:text-gray-200 transition">{e.name}</a>
@@ -52,16 +59,12 @@ function Navbar() {
                                         <XMarkIcon height={20} width={20} />
                                 </button>
                                 <div className=" flex flex-col items-center space-y-2 mt-2">
-                                        <a href="#" className="text-white hover:text-gray-200 transition"><HomeIcon height={30} width={30} /></a>
-                                        <a href="/register" className="text-white hover:text-gray-200 transition"><UserIcon height={30} width={30} /></a>
-                                        <a href="#" className="text-white hover:text-gray-200 transition"><PlayCircleIcon height={30} width={30} /></a>
-                                        <a href="#" className="text-white hover:text-gray-200 transition"><PuzzlePieceIcon height={30} width={30} /></a>
-                                        <a href="#" className="text-xl text-white hover:text-gray-200 transition">Tradition</a>
-                                        <a href="#" className="text-xl text-white hover:text-gray-200 transition">pop</a>
-                                        <a href="#" className="text-xl text-white hover:text-gray-200 transition">IranPop</a>
-                                        <a href="#" className="text-xl text-white hover:text-gray-200 transition">FilmMusic</a>
-                                        <a href="#" className="text-xl text-white hover:text-gray-200 transition">MusicVideo</a>
-                                        <a href="#" className="text-xl text-white hover:text-gray-200 transition">Study</a>
+                                        {navbar.slice(6).map((e, key) => (
+                                                <a href={e.Link} className="text-white hover:text-gray-200 transition"><e.icon height={25} width={25} /></a>
+                                        ))}
+                                        {navbar.slice(0, 6).map((e, key) => (
+                                                <a href={e.Link} className="text-white mt-1 hover:text-gray-200 transition">{e.name}</a>
+                                        ))}
                                         <Search />
                                 </div>
                         </nav>}
