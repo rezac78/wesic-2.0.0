@@ -30,7 +30,7 @@ export default function Register() {
         return (
                 <div className="min-h-screen  flex items-center justify-center">
                         {showToast && <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />}
-                        <div className="bg-gray-200 border-2 rounded-lg shadow-2xl border-[#4CD5AE] p-8 rounded shadow-md w-96">
+                        <div className="bg-gray-200 border-2 rounded-lg shadow-2xl border-[#4CD5AE] p-8 rounded shadow-md w-72 sm:w-96">
                                 <h2 className="text-2xl mb-6 text-center font-bold">Register</h2>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                         {InputRegister.map((inputProps, index) => (

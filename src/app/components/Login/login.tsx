@@ -1,4 +1,3 @@
-// src/pages/register.tsx
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { LoginInputData } from "../../../Events/Event"
@@ -16,7 +15,6 @@ export default function Login() {
         const onSubmit = async (data: any) => {
                 try {
                         const response = await LoginUser(data);
-                        console.log(response)
                         setToastMessage(response.message);
                         setToastType("success");
                         setShowToast(true);
@@ -35,9 +33,9 @@ export default function Login() {
                 }
         };
         return (
-                <div className="min-h-screen  flex items-center justify-center">
+                <div className="min-h-screen flex items-center justify-center">
                         {showToast && <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />}
-                        <div className="bg-gray-200 border-2 rounded-lg shadow-2xl border-[#4CD5AE] p-8 rounded shadow-md w-96">
+                        <div className="bg-gray-200 border-2 rounded-lg shadow-2xl border-[#4CD5AE] p-8 rounded shadow-md w-72 sm:w-96">
                                 <h2 className="text-2xl mb-6 text-center font-bold">Login</h2>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                         {LoginInputData.map((inputProps, index) => (
