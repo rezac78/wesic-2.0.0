@@ -26,7 +26,7 @@ function SliderShow() {
                 <div className="w-10/12 max-w-screen-xl mx-auto mt-10">
                         <Slider {...settings}>
                                 {pictureSliderShow.map((e) => (
-                                        <div className="h-[450px] relative">
+                                        <div className="h-[350px] sm:h-[450px] relative">
                                                 <Image
                                                         src={e}
                                                         alt={`Slide ${e}`}

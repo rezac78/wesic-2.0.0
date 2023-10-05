@@ -9,6 +9,7 @@ import {
   PlayCircleIcon,
   PuzzlePieceIcon,
   Bars3Icon,
+  MusicalNoteIcon,
 } from "@heroicons/react/24/outline";
 export interface AllsNavbar {
   id: number;
@@ -19,7 +20,7 @@ export interface AllsNavbar {
 interface InputRegisters {
   id: number;
   LabelName: string;
-  TypeInput: "text" | "email" | "password" | "confirmPassword";
+  TypeInput: "text" | "email" | "password" | "confirmPassword" | "file";
   IdLabel: string;
   PlaceholderLabel: string;
 }
@@ -45,6 +46,16 @@ export const navbar: AllsNavbar[] = [
   { id: 8, name: "User", Link: "/register", icon: UserIcon },
   { id: 9, name: "Play", Link: "#PlayCircleIcon", icon: PlayCircleIcon },
   { id: 10, name: "Game", Link: "#PuzzlePieceIcon", icon: PuzzlePieceIcon },
+];
+
+export const SidebarItem: AllsNavbar[] = [
+  { id: 1, name: "Home", Link: "/admin/dashboard", icon: HomeIcon },
+  {
+    id: 2,
+    name: "Traditional",
+    Link: "/admin/traditional",
+    icon: MusicalNoteIcon,
+  },
 ];
 
 export const PartsMains: PartsMain[] = [
@@ -128,6 +139,44 @@ export const InputRegister: InputRegisters[] = [
     TypeInput: "confirmPassword",
     IdLabel: "confirmPassword",
     PlaceholderLabel: "Confirm your password",
+  },
+];
+
+export const InputFormUpload: InputRegisters[] = [
+  {
+    id: 1,
+    LabelName: "Song Name",
+    TypeInput: "text",
+    IdLabel: "songName",
+    PlaceholderLabel: "Enter Song Name",
+  },
+  {
+    id: 2,
+    LabelName: "Singer Name",
+    TypeInput: "text",
+    IdLabel: "singerName",
+    PlaceholderLabel: "Enter Singer Name",
+  },
+  {
+    id: 3,
+    LabelName: "Song Type",
+    TypeInput: "text",
+    IdLabel: "songType",
+    PlaceholderLabel: "Enter Song Type",
+  },
+  {
+    id: 4,
+    LabelName: "Cover Photo",
+    TypeInput: "file",
+    IdLabel: "coverPhoto",
+    PlaceholderLabel: "",
+  },
+  {
+    id: 5,
+    LabelName: "Song File",
+    TypeInput: "file",
+    IdLabel: "songFile",
+    PlaceholderLabel: "",
   },
 ];
 

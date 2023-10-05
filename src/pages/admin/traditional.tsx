@@ -1,9 +1,10 @@
-import Dashboard from '@/app/components/AdminDashboard/Dashboard';
+// AdminDashboard.tsx
 import ProtectedRoute from '../../app/components/ProtectedRoute';
+import Transition from '@/app/components/AdminDashboard/Traditional';
 
 const AdminDashboard = () => (
   <ProtectedRoute requiredRole="admin">
-    <Dashboard/>
+    <Transition/>
   </ProtectedRoute>
 );
 
