@@ -19,10 +19,8 @@ const config: Config = {
     },
     screens: {
       'sm': '500px',
-      // => @media (min-width: 640px) { ... }
-
+      'mdl': '630px',
       'md': '1170px',
-      // => @media (min-width: 768px) { ... }
     }
   },
   plugins: [],
