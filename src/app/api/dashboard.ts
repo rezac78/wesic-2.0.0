@@ -49,12 +49,6 @@ export const DeletedSong = async (songId: any) => {
     const response = await axios.delete(
       `/dashboard/admin/traditional/${songId}`
     );
-    console.log(response);
-    if (response.ok) {
-      alert(response.ok);
-    } else {
-      alert("Delete failed");
-    }
   } catch (error) {
     console.error("There was an error deleting the song", error);
   }

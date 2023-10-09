@@ -4,12 +4,15 @@ import {
     PencilIcon,
 } from "@heroicons/react/24/outline";
 import { DeletedSong, GetAllSong } from '@/app/api/dashboard';
+import Toast from '../Toast/Toast';
 
 const TableComponent = () => {
     const [songs, setSongs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [showToast, setShowToast] = useState(false);
+    const [toastMessage, setToastMessage] = useState("");
+    const [toastType, setToastType] = useState("");
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -30,8 +33,13 @@ const TableComponent = () => {
     const handleDelete = async (songId: string) => {
         try {
             DeletedSong(songId)
+            setToastType("success");
+            setShowToast(true);
+            setToastMessage("Delete SuccessFull");
         } catch (error) {
-            console.error("There was an error deleting the song", error);
+            setToastType("error");
+            setShowToast(true);
+            setToastMessage("Delete Failed");
         }
     };
 
@@ -41,6 +49,7 @@ const TableComponent = () => {
 
     return (
         <table className="min-w-full bg-white">
+            {showToast && <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />}
             <thead>
                 <tr>
                     <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Singer Name</th>
@@ -69,7 +78,7 @@ const TableComponent = () => {
                         <td className="flex m-5">
                             <button onClick={() => handleDelete(song._id)}><TrashIcon className='' height={20} width={20} /></button>
                             <a href={`/update/Traditional/${song._id}`}><PencilIcon className='' height={20} width={20} /></a>
-                            
+
                         </td>
                     </tr>
                 ))}

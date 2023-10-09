@@ -2,16 +2,21 @@
 import { Dashboard } from '@/app/api/dashboard';
 import React, { useState } from 'react';
 import { InputFormUpload } from "../../../Events/Event"
-import InputsFile from '../InputFile/InputFile';
+import Toast from '../Toast/Toast';
+
+const initialFormData = {
+        songName: '',
+        singerName: '',
+        songType: '',
+        coverPhoto: null,
+        songFile: null,
+};
 
 const UploadSong = () => {
-        const [formData, setFormData] = useState({
-                songName: '',
-                singerName: '',
-                songType: '',
-                coverPhoto: null,
-                songFile: null,
-        });
+        const [formData, setFormData] = useState(initialFormData);
+        const [showToast, setShowToast] = useState(false);
+        const [toastMessage, setToastMessage] = useState("");
+        const [toastType, setToastType] = useState("");
 
         const handleChange = (e: { target: { name: any; value: any; }; }) => {
                 const { name, value } = e.target;
@@ -28,31 +33,27 @@ const UploadSong = () => {
 
                 Dashboard(formData)
                         .then(response => {
-                                console.log("Upload Successful:", response);
+                                setToastMessage("Create successfully");
+                                setToastType("success");
+                                setShowToast(true);
+                                setFormData(initialFormData);
                         })
                         .catch(error => {
-                                console.error("Upload Failed:", error);
+                                setToastMessage("Create Failed");
+                                setToastType("error");
+                                setShowToast(true);
                         });
         };
 
         return (
                 <div className="min-h-screen flex items-center justify-center bg-gray-900">
+                        {showToast && <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />}
                         <form
                                 onSubmit={handleSubmit}
                                 className="bg-gray-800 p-8 rounded shadow-md w-70 sm:w-96"
                         >
                                 <h1 className="text-white text-2xl font-bold mb-6">Upload Your Song</h1>
-                                {InputFormUpload.map((inputProps, index) => (
-                                        console.log(inputProps),
-                                        <InputsFile
-                                                key={index}
-                                                LabelName={inputProps.LabelName}
-                                                TypeInput={inputProps.TypeInput}
-                                                PlaceholderLabel={inputProps.PlaceholderLabel}
-                                                IdLabel={inputProps.IdLabel}
-                                        />
-                                ))}
-                                {/* <div className="mb-4">
+                                <div className="mb-4">
                                         <label className="block text-gray-300 mb-2" htmlFor="songName">
                                                 Song Name
                                         </label>
@@ -128,7 +129,7 @@ const UploadSong = () => {
                                                 className="w-full p-2 border rounded bg-gray-700 text-white cursor-pointer"
                                                 required
                                         />
-                                </div> */}
+                                </div>
 
                                 <button
                                         type="submit"
