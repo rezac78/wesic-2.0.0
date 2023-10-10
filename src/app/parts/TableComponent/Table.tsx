@@ -6,6 +6,15 @@ import {
 import { DeletedSong, GetAllSong } from '@/app/api/dashboard';
 import Toast from '../Toast/Toast';
 
+interface Song {
+    _id: string;
+    singerName: string;
+    songName: string;
+    songType: string;
+    coverPhoto: string;
+    songFile: string;
+}
+
 const TableComponent = () => {
     const [songs, setSongs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -14,28 +23,33 @@ const TableComponent = () => {
     const [toastMessage, setToastMessage] = useState("");
     const [toastType, setToastType] = useState("");
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                GetAllSong(setSongs)
-            } catch (error) {
-                setError(error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
         fetchData();
     }, []);
+    const fetchData = async () => {
+        setIsLoading(true);
+        try {
+            const fetchedSongs = await GetAllSong();
+            setSongs(fetchedSongs || []);
+        } catch (error: any) {
+            setError(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
 
     if (isLoading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-    if (!songs.length) return <p>No songs available.</p>;
+    if (!songs?.length) return <p>No songs available.</p>;
 
     const handleDelete = async (songId: string) => {
         try {
-            DeletedSong(songId)
+            await DeletedSong(songId); // Assuming DeletedSong returns a promise that deletes a song
             setToastType("success");
             setShowToast(true);
-            setToastMessage("Delete SuccessFull");
+            setToastMessage("Delete Successful");
+
+            fetchData(); // Fetch the data again after successfully deleting a song
         } catch (error) {
             setToastType("error");
             setShowToast(true);
@@ -61,7 +75,7 @@ const TableComponent = () => {
                 </tr>
             </thead>
             <tbody>
-                {songs.map((song, index) => (
+                {songs.map((song: Song, index: number) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
                         <td className="py-2 px-3 border-b border-gray-200">{song.singerName}</td>
                         <td className="py-2 px-3 border-b border-gray-200">{song.songName}</td>

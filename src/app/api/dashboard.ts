@@ -11,8 +11,11 @@ export const Dashboard = async (songData: SongData) => {
   try {
     const data = new FormData();
     Object.keys(songData).forEach((key) => {
-      data.append(key, songData[key as keyof SongData]);
-    });
+      const value = songData[key as keyof SongData];
+      if (value !== null && value !== undefined) {  
+          data.append(key, value);
+      }
+  });
     const response = await axios.post("/dashboard/admin/traditional", data, {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -24,16 +27,16 @@ export const Dashboard = async (songData: SongData) => {
   }
 };
 
-export const GetAllSong = async (SetData: any) => {
+export const GetAllSong = async () => {
   try {
     const response = await axios.get(`/dashboard/admin/traditional`);
-    if (!response.statusText === "OK") {
+    if (response.statusText !== "OK") {
       throw new Error("Network response was not ok");
     }
-    const data = await response.data.data;
-    SetData(data);
+    return response.data.data; // Simply return data
   } catch (error) {
-    console.error("There was an error deleting the song", error);
+    console.error("There was an error!", error);
+    throw error;
   }
 };
 
