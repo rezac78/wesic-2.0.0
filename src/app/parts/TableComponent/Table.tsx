@@ -5,14 +5,14 @@ import {
 } from "@heroicons/react/24/outline";
 import { DeletedSong, GetAllSong } from '@/app/api/dashboard';
 import Toast from '../Toast/Toast';
+import HeaderTable from '../HeaderTable/HeaderTable';
+import { HeaderTableSinger } from "../../../Events/Event"
 
 interface Song {
     _id: string;
-    singerName: string;
-    songName: string;
-    songType: string;
+    name: string;
+    bio: string;
     coverPhoto: string;
-    songFile: string;
 }
 
 const TableComponent = () => {
@@ -64,30 +64,14 @@ const TableComponent = () => {
     return (
         <table className="min-w-full bg-white">
             {showToast && <Toast message={toastMessage} type={toastType} onClose={() => setShowToast(false)} />}
-            <thead>
-                <tr>
-                    <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Singer Name</th>
-                    <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Song Name</th>
-                    <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Song Type</th>
-                    <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Cover Photo</th>
-                    <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Song File</th>
-                    <th className="py-2 px-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Options</th>
-                </tr>
-            </thead>
+            <HeaderTable Data={HeaderTableSinger} />
             <tbody>
                 {songs.map((song: Song, index: number) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-                        <td className="py-2 px-3 border-b border-gray-200">{song.singerName}</td>
-                        <td className="py-2 px-3 border-b border-gray-200">{song.songName}</td>
-                        <td className="py-2 px-3 border-b border-gray-200">{song.songType}</td>
+                        <td className="py-2 px-3 border-b border-gray-200">{song.name}</td>
+                        <td className="py-2 px-3 border-b border-gray-200">{song.bio}</td>
                         <td className="py-2 px-3 border-b border-gray-200">
-                            <img src={`http://localhost:3001/uploads/covers/${song.coverPhoto}`} alt={song.songName} width="100" height="50" />
-                        </td>
-                        <td className="py-2 px-3 border-b border-gray-200">
-                            <audio controls>
-                                <source src={`http://localhost:3001/uploads/songs/${song.songFile}`} type="audio/mp3" />
-                                Your browser does not support the audio element.
-                            </audio>
+                            <img src={`http://localhost:3001/uploads/covers/${song.coverPhoto}`} alt={song.name} width="100" height="50" />
                         </td>
                         <td className="flex m-5">
                             <button onClick={() => handleDelete(song._id)}><TrashIcon className='' height={20} width={20} /></button>

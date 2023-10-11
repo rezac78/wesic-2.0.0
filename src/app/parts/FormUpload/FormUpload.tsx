@@ -5,11 +5,9 @@ import { InputFormUpload } from "../../../Events/Event"
 import Toast from '../Toast/Toast';
 
 const initialFormData = {
-        songName: '',
-        singerName: '',
-        songType: '',
+        name: '',
+        bio: '',
         coverPhoto: null,
-        songFile: null,
 };
 
 const UploadSong = () => {
@@ -54,30 +52,14 @@ const UploadSong = () => {
                         >
                                 <h1 className="text-white text-2xl font-bold mb-6">Upload Your Song</h1>
                                 <div className="mb-4">
-                                        <label className="block text-gray-300 mb-2" htmlFor="songName">
-                                                Song Name
-                                        </label>
-                                        <input
-                                                type="text"
-                                                id="songName"
-                                                name="songName"
-                                                value={formData.songName}
-                                                onChange={handleChange}
-                                                placeholder="Enter Song Name"
-                                                className="w-full p-2 border rounded bg-gray-700 text-white placeholder-gray-500"
-                                                required
-                                        />
-                                </div>
-
-                                <div className="mb-4">
-                                        <label className="block text-gray-300 mb-2" htmlFor="singerName">
+                                        <label className="block text-gray-300 mb-2" htmlFor="name">
                                                 Singer Name
                                         </label>
                                         <input
                                                 type="text"
-                                                id="singerName"
-                                                name="singerName"
-                                                value={formData.singerName}
+                                                id="name"
+                                                name="name"
+                                                value={formData.name}
                                                 onChange={handleChange}
                                                 placeholder="Enter Singer Name"
                                                 className="w-full p-2 border rounded bg-gray-700 text-white placeholder-gray-500"
@@ -86,21 +68,19 @@ const UploadSong = () => {
                                 </div>
 
                                 <div className="mb-4">
-                                        <label className="block text-gray-300 mb-2" htmlFor="songType">
-                                                Song Type
+                                        <label className="block text-gray-300 mb-2" htmlFor="bio">
+                                                Singer Bio
                                         </label>
-                                        <input
-                                                type="text"
-                                                id="songType"
-                                                name="songType"
-                                                value={formData.songType}
+                                        <textarea
+                                                id="bio"
+                                                name="bio"
+                                                value={formData.bio}
                                                 onChange={handleChange}
-                                                placeholder="Enter Song Type"
+                                                placeholder="Enter Singer Bio"
                                                 className="w-full p-2 border rounded bg-gray-700 text-white placeholder-gray-500"
                                                 required
                                         />
                                 </div>
-
                                 <div className="mb-4">
                                         <label className="block text-gray-300 mb-2" htmlFor="coverPhoto">
                                                 Cover Photo
@@ -115,22 +95,6 @@ const UploadSong = () => {
                                                 required
                                         />
                                 </div>
-
-                                <div className="mb-4">
-                                        <label className="block text-gray-300 mb-2" htmlFor="songFile">
-                                                Song File
-                                        </label>
-                                        <input
-                                                type="file"
-                                                id="songFile"
-                                                name="songFile"
-                                                onChange={handleFileChange}
-                                                accept="audio/*"
-                                                className="w-full p-2 border rounded bg-gray-700 text-white cursor-pointer"
-                                                required
-                                        />
-                                </div>
-
                                 <button
                                         type="submit"
                                         className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200"

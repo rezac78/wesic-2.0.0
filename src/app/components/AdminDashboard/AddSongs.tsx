@@ -1,14 +1,13 @@
 
 import FormUpload from '@/app/parts/FormUpload/FormUpload';
 import HeaderDash from '@/app/parts/HeaderDash/HeaderDash';
-import HeaderSwitch from '@/app/parts/HeaderSwich/HeaderSwitch';
 import Sidebar from '@/app/parts/Sidebar/Sidebar';
 import TableComponent from '@/app/parts/TableComponent/Table';
 import React, { useEffect, useState } from 'react';
 
 
 
-export default function Transition() {
+export default function AddSongs() {
         const [activeTab, setActiveTab] = useState('create');
         const [isMenuOpen, setIsMenuOpen] = useState(false);
         const [windowWidth, setWindowWidth] = useState(
@@ -50,7 +49,20 @@ export default function Transition() {
                         <div className={`mdl:flex-1 mdl:flex ${isMenuOpen ? '' : ''}`}>
                                 <Sidebar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
                                 <div className="flex-1 sm:p-4 bg-gray-800">
-                                        <HeaderSwitch TitleSong="Create Song" TitleSongs="Display Songs" activeTab={activeTab} setActiveTab={setActiveTab} />
+                                        <div className="flex p-4 bg-gray-800">
+                                                <button
+                                                        className={`p-2 ${activeTab === 'create' ? 'bg-gray-600' : ''}`}
+                                                        onClick={() => setActiveTab('create')}
+                                                >
+                                                        Create Song
+                                                </button>
+                                                <button
+                                                        className={`p-2 ${activeTab === 'display' ? 'bg-gray-600' : ''}`}
+                                                        onClick={() => setActiveTab('display')}
+                                                >
+                                                        Display Songs
+                                                </button>
+                                        </div>
                                         <div className="flex-1 sm:p-4 bg-gray-800">
                                                 {activeTab === 'create' && (
                                                         <FormUpload />

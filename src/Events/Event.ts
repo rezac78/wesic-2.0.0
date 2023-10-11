@@ -17,6 +17,11 @@ export interface AllsNavbar {
   name: string;
   icon: any;
 }
+
+export interface HeaderTables {
+  id: number;
+  name: string;
+}
 interface InputRegisters {
   id: number;
   LabelName: string;
@@ -56,6 +61,7 @@ export const SidebarItem: AllsNavbar[] = [
     Link: "/admin/traditional",
     icon: MusicalNoteIcon,
   },
+  { id: 3, name: "Add Songs", Link: "/admin/addsongs", icon: MusicalNoteIcon },
 ];
 
 export const PartsMains: PartsMain[] = [
@@ -195,4 +201,11 @@ export const LoginInputData: InputRegisters[] = [
     IdLabel: "password",
     PlaceholderLabel: "Enter your password",
   },
+];
+
+export const HeaderTableSinger: HeaderTables[] = [
+  { id: 1, name: "Singer Name" },
+  { id: 2, name: "Bio" },
+  { id: 3, name: "Cover Photo" },
+  { id: 4, name: "Options" },
 ];

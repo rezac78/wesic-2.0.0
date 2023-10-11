@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import {
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-import { SidebarItem } from "@/Events/Event"
+import { SidebarItem } from "@/Events/Event";
 
 interface Sidebars {
   setIsMenuOpen: Dispatch<SetStateAction<boolean>>;

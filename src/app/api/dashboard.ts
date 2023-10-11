@@ -1,10 +1,8 @@
 import axios from "./axiosConfig";
 interface SongData {
-  songName: string;
-  singerName: string;
-  songType: string;
+  name: string;
+  bio: string;
   coverPhoto: File | null;
-  songFile: File | null;
 }
 
 export const Dashboard = async (songData: SongData) => {
