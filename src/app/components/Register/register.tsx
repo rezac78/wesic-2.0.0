@@ -40,6 +40,7 @@ export default function Register() {
                                                         Register={register}
                                                         Errors={errors}
                                                         {...inputProps}
+                                                        ModelInput="Login"
                                                 />
                                         ))}
                                         <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded">Register</button>

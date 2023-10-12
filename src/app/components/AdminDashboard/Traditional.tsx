@@ -50,7 +50,7 @@ export default function Transition() {
                         <div className={`mdl:flex-1 mdl:flex ${isMenuOpen ? '' : ''}`}>
                                 <Sidebar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
                                 <div className="flex-1 sm:p-4 bg-gray-800">
-                                        <HeaderSwitch TitleSong="Create Song" TitleSongs="Display Songs" activeTab={activeTab} setActiveTab={setActiveTab} />
+                                        <HeaderSwitch TitleSongs="Display Songs" TitleSong="Create Song" setActiveTab={setActiveTab} activeTab={activeTab} />
                                         <div className="flex-1 sm:p-4 bg-gray-800">
                                                 {activeTab === 'create' && (
                                                         <FormUpload />
@@ -59,7 +59,6 @@ export default function Transition() {
                                                         <TableComponent />
                                                 )}
                                         </div>
-
                                 </div>
                         </div>
                 </div>
