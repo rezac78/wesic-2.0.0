@@ -28,6 +28,8 @@ interface InputRegisters {
   TypeInput: "text" | "email" | "password" | "confirmPassword" | "file";
   IdLabel: string;
   PlaceholderLabel: string;
+  isFile: boolean;
+  isTextarea: boolean;
 }
 
 export interface PartsMain {
@@ -124,6 +126,8 @@ export const InputRegister: InputRegisters[] = [
     TypeInput: "text",
     IdLabel: "username",
     PlaceholderLabel: "Enter your name",
+    isFile: false,
+    isTextarea:false,
   },
   {
     id: 2,
@@ -131,6 +135,9 @@ export const InputRegister: InputRegisters[] = [
     TypeInput: "email",
     IdLabel: "email",
     PlaceholderLabel: "Enter your email",
+    isFile: false,
+    isTextarea:false,
+
   },
   {
     id: 3,
@@ -138,6 +145,8 @@ export const InputRegister: InputRegisters[] = [
     TypeInput: "password",
     IdLabel: "password",
     PlaceholderLabel: "Enter your password",
+    isFile: false,
+    isTextarea:false,
   },
   {
     id: 4,
@@ -145,44 +154,38 @@ export const InputRegister: InputRegisters[] = [
     TypeInput: "confirmPassword",
     IdLabel: "confirmPassword",
     PlaceholderLabel: "Confirm your password",
+    isFile: false,
+    isTextarea:false,
   },
 ];
 
-export const InputFormUpload: InputRegisters[] = [
+export const InputFormSinger: InputRegisters[] = [
   {
     id: 1,
-    LabelName: "Song Name",
-    TypeInput: "text",
-    IdLabel: "songName",
-    PlaceholderLabel: "Enter Song Name",
-  },
-  {
-    id: 2,
     LabelName: "Singer Name",
     TypeInput: "text",
     IdLabel: "singerName",
     PlaceholderLabel: "Enter Singer Name",
+    isFile: false,
+    isTextarea:false,
+  },
+  {
+    id: 2,
+    LabelName: "Bio",
+    TypeInput: "text",
+    IdLabel: "bio",
+    PlaceholderLabel: "Enter Bio",
+    isFile: false,
+    isTextarea:true,
   },
   {
     id: 3,
-    LabelName: "Song Type",
-    TypeInput: "text",
-    IdLabel: "songType",
-    PlaceholderLabel: "Enter Song Type",
-  },
-  {
-    id: 4,
     LabelName: "Cover Photo",
     TypeInput: "file",
     IdLabel: "coverPhoto",
-    PlaceholderLabel: "",
-  },
-  {
-    id: 5,
-    LabelName: "Song File",
-    TypeInput: "file",
-    IdLabel: "songFile",
-    PlaceholderLabel: "",
+    PlaceholderLabel: "Upload a cover photo",
+    isFile: true,
+    isTextarea:false,
   },
 ];
 
@@ -193,6 +196,8 @@ export const LoginInputData: InputRegisters[] = [
     TypeInput: "email",
     IdLabel: "email",
     PlaceholderLabel: "Enter your email",
+    isFile: false,
+    isTextarea:false,
   },
   {
     id: 2,
@@ -200,6 +205,8 @@ export const LoginInputData: InputRegisters[] = [
     TypeInput: "password",
     IdLabel: "password",
     PlaceholderLabel: "Enter your password",
+    isFile: false,
+    isTextarea:false,
   },
 ];
 

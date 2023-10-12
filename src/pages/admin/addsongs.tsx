@@ -1,9 +1,9 @@
 import ProtectedRoute from '../../app/components/ProtectedRoute';
-import Transition from '@/app/components/AdminDashboard/Traditional';
+import AddSongs from '@/app/components/AdminDashboard/AddSongs';
 
 const AddSongsDashboard = () => (
   <ProtectedRoute requiredRole="admin">
-    <Transition/>
+    <AddSongs/>
   </ProtectedRoute>
 );
 
